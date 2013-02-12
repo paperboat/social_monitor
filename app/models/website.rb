@@ -4,7 +4,7 @@ class Website < ActiveRecord::Base
   has_many :pages
   has_many :statistics, :through => :pages
   
-  before_save :create_public_token
+  before_create :create_public_token
   
   def facebook
     self.pages.sum(:facebook)
