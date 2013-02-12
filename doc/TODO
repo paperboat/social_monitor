@@ -10,6 +10,8 @@
 * crawler cut-off (needs testing)
 * include display-name in slug
 * include graph in public link
+* include display name in title for public link
+* public link net invalideieren
 
 == finished ==
 * public link fir unzeginn

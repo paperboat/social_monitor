@@ -18,10 +18,6 @@ class WebsitesController < ApplicationController
   def show
     if user_signed_in?
       @website = Website.find(params[:id])
-      if @website.public_token.nil?
-        @website.public_token = SecureRandom.urlsafe_base64
-        @website.save
-      end
       
       @top_pages = Page.find_by_sql("SELECT * FROM pages WHERE website_id = #{@website.id} ORDER BY (facebook+linkedin+gplus+twitter) DESC LIMIT 5")
       
