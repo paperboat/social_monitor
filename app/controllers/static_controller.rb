@@ -18,4 +18,8 @@ class StaticController < ApplicationController
   def confirm_upgrade
     
   end
+  
+  def public
+    @website = Website.find_by_public_token(params[:id])
+  end
 end

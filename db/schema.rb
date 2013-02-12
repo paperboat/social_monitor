@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212085057) do
+ActiveRecord::Schema.define(:version => 20130212114517) do
 
   create_table "pages", :force => true do |t|
     t.integer  "website_id"
@@ -86,13 +86,14 @@ ActiveRecord::Schema.define(:version => 20130212085057) do
     t.string   "name"
     t.datetime "last_crawl"
     t.integer  "frequency"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "facebook"
     t.integer  "twitter"
     t.integer  "linkedin"
     t.integer  "gplus"
     t.integer  "page_cnt"
+    t.string   "public_token"
   end
 
 end
