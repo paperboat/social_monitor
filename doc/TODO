@@ -1,4 +1,5 @@
 == open ==
+* include Icon for facebook
 * error message for password
 * change "root URL" to URL
 * change "name" to "Display name"
@@ -8,12 +9,10 @@
 * graphs
 * crawler cut-off (needs testing)
 * include display-name in slug
+* include graph in public link
 
 == finished ==
-./.
-
+* public link fir unzeginn
 
 == In work ==
-* public link fir unzeginn
-	- total
-	- graph
+* include Icon for facebook
