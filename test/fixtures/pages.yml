@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  website_id: 1
+  body: MyText
+  code: 1
+  depth: 1
+  headers: MyText
+  redirect_to: MyString
+  referer: MyString
+  response_time: 1
+  url: MyString
+  page_title: MyString
+
+two:
+  website_id: 1
+  body: MyText
+  code: 1
+  depth: 1
+  headers: MyText
+  redirect_to: MyString
+  referer: MyString
+  response_time: 1
+  url: MyString
+  page_title: MyString

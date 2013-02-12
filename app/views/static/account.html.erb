@@ -1,0 +1,21 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<h1>Account details</h1>
+		<div class="span12 badges">
+			<div class="span3 facebook">
+				<h3>Account Type</h3>
+				<h4><%= @user.premium? ? "Premium" : "Free" %></h4>
+			</div>
+			<div class="span3 facebook">
+				<h3>Valid Until</h3>
+				<h4><%= @user.premium ? @user.valid_till.strftime("%Y-%m-%d") : "n.a." %></h4>
+			</div>
+			<% if !@user.premium -%>
+			<a href="/upgrade"><div class="span5 offset1 upgrade">
+				<h3>Upgrade now!</h3>
+				<p>And lift the 20 pages per website limit!</p>
+			</div></a>
+			<% end -%>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<h1>Details for <%= @website.name %></h1>
+<p>&nbsp;</p>
+<div class="container-fluid">
+	<div class="row-fluid badges">
+		<div class="span3 facebook">
+			<h2>facebook</h2>
+			<h3><%= @website.facebook %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 twitter">
+			<h2>twitter</h2>
+			<h3><%= @website.twitter %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 gplus">
+			<h2>Google+</h2>
+			<h3><%= @website.gplus %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 linkedin">
+			<h2>LinkedIn</h2>
+			<h3><%= @website.linkedin %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<p>&nbsp;</p>
+		<h2>5 top pages</h2>
+		<table class="table">
+			<tr>
+				<th>Page</th>
+				<th class="facebook" style="width: 100px; text-align: center;">facebook</th>
+				<th class="twitter" style="width: 100px; text-align: center;">twitter</th>
+				<th class="gplus" style="width: 100px; text-align: center;">Google+</th>
+				<th class="linkedin" style="width: 100px; text-align: center;">LinkedIn</th>
+			</tr>
+			<% @top_pages.each do |p| -%>
+			<tr>
+				<td><a href="<%= p.url %>" title="<%= "/" unless p.url.sub(@website.root_url, "").start_with?("/") %><%= p.url.sub(@website.root_url, "") %>"><%= truncate(p.page_title, :length => 45) %></a></td>
+				<td><%= p.facebook %></td>
+				<td><%= p.twitter %></td>
+				<td><%= p.gplus %></td>
+				<td><%= p.linkedin %></td>
+			</tr>
+			<% end -%>
+		</table>
+	</div>
+</div>
+
+<a href="/"><button class="btn btn-info"><span class="icon-angle-left"></span> Back</button></a>
+<p>
+	<small>We last crawled the website <%= time_ago_in_words(@website.last_crawl) %> ago.</small>
+</p>

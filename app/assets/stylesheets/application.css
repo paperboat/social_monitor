@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+ 
+ .socialmonitor {
+ 	font-family: 'Open Sans', sans-serif;
+ }
+ 
+ footer {
+	 margin-top: 15px;
+ }
+ 
+ body {
+	 background-image: url('tartan.png');
+ }
+ 
+ body div.body  {
+	 background-color: white;
+ }
+
+ /* MARKETING PAGE - START */
+ 
+ .marketing-head {
+	 padding-top: 25px;
+	 margin-top: -10px;
+	 margin-left: -20px;
+	 margin-right: -20px;
+	 margin-bottom: 25px;
+	 text-align: center;
+	 background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, from(rgb(93, 54, 126)), to(rgb(133, 78, 179)));
+	 color: white;
+ }
+ 
+ .marketing-head .pull-right {
+	 text-align: left;
+	 color: rgb(219, 203, 233);
+ }
+
+ .marketing h3, .marketing h4 {
+	 font-weight: 400;
+ }
+ 
+ .marketing {
+ 	font-family: 'Open Sans', sans-serif;
+ }
+ 
+ .marketing-head p {
+ 	font-size: 16px;
+	line-height: 140%;
+ }
+ 
+ .marketing-summary p {
+    width: 75%;
+	margin:auto;
+	text-align: center;
+  	font-size: 24px;
+ 	line-height: 140%;
+ }
+ 
+ /* MARKETING PAGE - END */
+ 
+ /* SIGNUP - START */
+ .form-signup {
+   max-width: 300px;
+   padding: 19px 29px 29px;
+   margin: 0 auto 20px;
+   background-color: #fff;
+   border: 1px solid #e5e5e5;
+   -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+           border-radius: 5px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           box-shadow: 0 1px 2px rgba(0,0,0,.05);
+ }
+ .form-signup .form-signup-heading,
+ .form-signup .checkbox {
+   margin-bottom: 10px;
+ }
+ .form-signup input[type="text"],
+ .form-signup input[type="email"],
+ .form-signup input[type="password"] {
+   font-size: 16px;
+   height: auto;
+   margin-bottom: 15px;
+   padding: 7px 9px;
+ }
+ 
+ /* SIGNUP - END */
+ 
+ /* DASHBOARD - START */
+ .badges div {
+	 height: 120px;
+	 text-align: center;
+ }
+ 
+ .facebook {
+	 color: white;
+	 background-color: #3b5998;
+ }
+ 
+ .twitter {
+	 color: white;
+	 background-color: #9AE4E8;
+ }
+ 
+ .linkedin {
+	 color: white;
+	 background-color: #4875B4;
+ }
+ 
+ .gplus {
+	 color: white;
+	 background-color: #C63D2D;
+ }
+ 
+ .upgrade {
+	 background-color: #04B45F;
+ }
+ 
+ /* DASHBOARD - END */
+ 

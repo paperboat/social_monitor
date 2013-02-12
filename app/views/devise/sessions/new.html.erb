@@ -1,0 +1,20 @@
+<p>&nbsp;</p>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-signup"}) do |f| %>
+	<h2 class="form-signup-heading">Sign in</h2>
+	<%= f.email_field :email, :autofocus => true, :placeholder => "Email address", :class => "input-block-level" %>
+	<%= f.password_field :password, :placeholder => "Password", :class => "input-block-level" %>
+    <% if devise_mapping.rememberable? -%>
+	<%= f.label :remember_me, :class => "checkbox" do |l| %>
+      <%= f.check_box :remember_me %> Remember me
+	<%- end%>
+    <% end -%>
+	<button class="btn btn-large btn-primary input-block-level" type="submit">Sign In</button>
+	<p><br>
+	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+	  <%= link_to "Don't have an account? Sign up here", new_registration_path(resource_name) %><br />
+	<% end -%>
+	<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+	  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+	<% end -%>
+	</p>
+<% end -%>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  root_url: MyString
+  name: MyString
+  last_crawl: 2013-02-12 01:52:50
+  frequency: 1
+
+two:
+  user_id: 1
+  root_url: MyString
+  name: MyString
+  last_crawl: 2013-02-12 01:52:50
+  frequency: 1

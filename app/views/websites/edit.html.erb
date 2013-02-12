@@ -1,0 +1,24 @@
+<p>&nbsp;</p>
+<%= form_for(@website, :html => {:class => "form-signup"}) do |f| %>
+	<h2 class="form-signup-heading">Editing website</h2>
+	<% if @website.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@website.errors.count, "error") %> prohibited this website from being saved:</h2>
+
+	    <ul>
+	    <% @website.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<%= f.text_field :root_url, :autofocus => true, :placeholder => "Root URL", :class => "input-block-level" %>
+	<%= f.text_field :name, :placeholder => "Website Name", :class => "input-block-level" %>
+	
+	<button class="btn btn-large btn-primary input-block-level" type="submit">Save website</button>
+	<hr>
+	<%= link_to '<button class="btn btn-large btn-danger input-block-level" type="submit">Reindex website</button>'.html_safe, "/websites/reindex/#{@website.id}", method: :get, data: { confirm: 'Are you sure? Your historical statistics will be permanently lost!' } %>
+<% end -%>
+
+<a href="/"><button class="btn btn-info"><span class="icon-angle-left"></span> Back</button></a>

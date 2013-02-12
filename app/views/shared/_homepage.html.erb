@@ -1,0 +1,125 @@
+<h1>Dashboard</h1>
+<div class="well well-large">
+	<p>
+		<em>
+			<%- pages = @websites.size > 0 ? @websites.sum {|w| w.pages.size} : 0 %>
+			You currently monitor <%= pluralize(@websites.size, "website") %> with a total of <%= pluralize(pages, "discovered page") %>.
+		</em>
+	</p>
+	<p>
+		<%- if !current_user.premium %>
+		<a href="/upgrade">While you are a free user, you can create unlimited websites but only scrape the 20 first pages of each. <br> Become a premium user for <strong>9.99 &euro; / month</strong> and analyse an unlimited number of pages.</a>
+		<% end -%>
+	</p>
+</div>
+
+<div class="container-fluid">
+	<% if @websites.size > 0 -%>
+	<div class="row-fluid badges">
+		<div class="span3 facebook">
+			<h2>facebook</h2>
+			<h3><%= current_user.facebook %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 twitter">
+			<h2>twitter</h2>
+			<h3><%= current_user.twitter %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 gplus">
+			<h2>Google+</h2>
+			<h3><%= current_user.gplus %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+		
+		<div class="span3 linkedin">
+			<h2>LinkedIn</h2>
+			<h3><%= current_user.linkedin %> <!--<small>(+ 234)</small>--></h3>
+		</div>
+	</div>
+	<% end -%>
+	<p>&nbsp;</p>
+	<div class="row-fluid">
+		<script type="text/javascript">
+		      function drawVisualization() {
+		        // Create and populate the data table.
+		        var data = google.visualization.arrayToDataTable([
+		          ['x', 'Total', 'facebook', 'twitter', 'google+', 'LinkedIn'],
+				  ['2013-02-01',	2623,	901,	238,	569,	915],
+				  ['2013-02-02',	2634,	902,	240,	570,	922],
+				  ['2013-02-03',	2658,	908,	247,	575,	928],
+				  ['2013-02-04',	2684,	916,	254,	582,	932],
+				  ['2013-02-05',	2700,	918,	261,	587,	934],
+				  ['2013-02-06',	2729,	924,	271,	591,	943],
+				  ['2013-02-07',	2746,	926,	279,	595,	946],
+				  ['2013-02-08',	2770,	936,	286,	602,	946],
+				  ['2013-02-09',	2789,	941,	296,	605,	947],
+				  ['2013-02-10',	2816,	950,	300,	614,	952],
+				  ['2013-02-11',	2838,	960,	302,	615,	961],
+				  ['2013-02-12',	2867,	969,	309,	619,	970],
+				  ['2013-02-13',	2880,	975,	313,	621,	971],
+				  ['2013-02-14',	2898,	985,	314,	626,	973]
+		        ]);
+      
+		        // Create and draw the visualization.
+		        new google.visualization.LineChart(document.getElementById('visualization')).
+		            draw(data, {curveType: "function",
+		                        height: 300,
+								hAxis: {textPosition: 'none'},
+								theme: "maximized",
+								colors: ["orange", "#3b5998", "#9AE4E8", "#C63D2D", "#4875B4"]}
+		                );
+		      }
+      
+
+		      google.setOnLoadCallback(drawVisualization);
+		    </script>
+			<!--<div id="visualization" class="span12"></div>-->
+	</div>
+	<p>&nbsp;</p>
+	<div class="row-fluid">
+		<table class="table">
+			<tr>
+				<th style="width: 35px;">&nbsp;</th>
+				<th>Website</th>
+				<th style="width: 100px;">Pages</th>
+				<th class="facebook" style="width: 100px; text-align: center;">facebook</th>
+				<th class="twitter" style="width: 100px; text-align: center;">twitter</th>
+				<th class="gplus" style="width: 100px; text-align: center;">Google+</th>
+				<th class="linkedin" style="width: 100px; text-align: center;">LinkedIn</th>
+				<th style="width: 20px;">&nbsp;</th>
+			</tr>
+			<%- if @websites.size < 1 %>
+			<tr class="warning">
+				<td colspan=8>
+					In order to display statistics, you need to add at least one website. <%= link_to "Do it now!", new_website_path %>
+				</td>
+			</tr>
+			<%- else %>
+			<% @websites.each do |w| -%>
+			<tr>
+				<td>
+					<%= link_to '<span class="icon-zoom-in"></span>'.html_safe, w %>
+					<%= link_to '<span class="icon-edit"></span>'.html_safe, edit_website_path(w) %>
+				</td>
+				<td><%= link_to w.name, w %></td>
+				<% if !w.page_cnt.nil? -%>
+				<td><%= w.page_cnt %></td>
+				<td><%= w.facebook %></td>
+				<td><%= w.twitter %></td>
+				<td><%= w.gplus %></td>
+				<td><%= w.linkedin %></td>
+				<% else -%>
+				<td colspan=5>
+					<em>Please wait for our ninjas to fetch the first statistics.</em>
+				</td>
+				<% end -%>
+				<td><%= link_to '<span class="icon-trash"><span>'.html_safe, w, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end -%>
+			<%- end %>
+		</table>
+		<p>
+			<%= link_to '<button class="btn btn-success"><span class="icon-plus-sign"></span> Website</button>'.html_safe, new_website_path %>
+		</p>
+	</div>
+</div>

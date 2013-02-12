@@ -1,0 +1,46 @@
+[Account]
+  id
+  email
+  password
+  facebook
+  twitter
+  linkedin
+  gplus
+
+[Website]
+  id
+  account_id
+  root_url
+  name
+  last_crawl
+  frequency
+  facebook
+  twitter
+  linkedin
+  gplus
+
+[Page]
+  id
+  website_id
+  body
+  code
+  depth
+  headers
+  redirect_to
+  referer
+  response_time
+  url
+  page_title
+  facebook
+  twitter
+  linkedin
+  gplus
+  
+[Statistic]
+  id
+  page_id
+  fetch_date
+  facebook
+  twitter
+  linkedin
+  gplus

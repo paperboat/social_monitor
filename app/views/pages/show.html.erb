@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Website:</b>
+  <%= @page.website_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @page.body %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @page.code %>
+</p>
+
+<p>
+  <b>Depth:</b>
+  <%= @page.depth %>
+</p>
+
+<p>
+  <b>Headers:</b>
+  <%= @page.headers %>
+</p>
+
+<p>
+  <b>Redirect to:</b>
+  <%= @page.redirect_to %>
+</p>
+
+<p>
+  <b>Referer:</b>
+  <%= @page.referer %>
+</p>
+
+<p>
+  <b>Response time:</b>
+  <%= @page.response_time %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @page.url %>
+</p>
+
+<p>
+  <b>Page title:</b>
+  <%= @page.page_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

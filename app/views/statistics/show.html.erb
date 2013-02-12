@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Page:</b>
+  <%= @statistic.page_id %>
+</p>
+
+<p>
+  <b>Fetch date:</b>
+  <%= @statistic.fetch_date %>
+</p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @statistic.facebook %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @statistic.twitter %>
+</p>
+
+<p>
+  <b>Linkedin:</b>
+  <%= @statistic.linkedin %>
+</p>
+
+<p>
+  <b>Gplus:</b>
+  <%= @statistic.gplus %>
+</p>
+
+
+<%= link_to 'Edit', edit_statistic_path(@statistic) %> |
+<%= link_to 'Back', statistics_path %>

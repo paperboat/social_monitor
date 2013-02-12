@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: 1
+  fetch_date: 2013-02-12
+  facebook: 1
+  twitter: 1
+  linkedin: 1
+  gplus: 1
+
+two:
+  page_id: 1
+  fetch_date: 2013-02-12
+  facebook: 1
+  twitter: 1
+  linkedin: 1
+  gplus: 1
