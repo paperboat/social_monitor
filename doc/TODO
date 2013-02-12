@@ -1,7 +1,5 @@
 == open ==
 * error message for password
-* change "root URL" to URL
-* change "name" to "Display name"
 * center content-wrapper
 * explain the key metrics
 * facebook nach opdröselen
@@ -15,6 +13,8 @@
 * include display name in title for public link
 * include Icon for facebook
 * include desc for Facebook
+* include display-name in slug
 
 == In work ==
-* include display-name in slug
+* change "root URL" to URL
+* change "name" to "Display name"
