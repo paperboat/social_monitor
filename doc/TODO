@@ -1,7 +1,7 @@
 == open ==
-* error message for password
 * center content-wrapper
 * explain the key metrics
+	- help page
 * facebook nach opdröselen
 * graphs
 * crawler cut-off (needs testing)
@@ -14,7 +14,11 @@
 * include Icon for facebook
 * include desc for Facebook
 * include display-name in slug
-
-== In work ==
 * change "root URL" to URL
 * change "name" to "Display name"
+
+== In work ==
+
+
+== Deferred ==
+* error message for password (suboptimal brauch en expert)

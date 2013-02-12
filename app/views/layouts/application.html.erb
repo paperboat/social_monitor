@@ -52,19 +52,10 @@
 		        <div class="span12">
 		          <%= bootstrap_flash %>
 				  <%- if user_signed_in? %>
-				  <p>&nbsp;</p>
-				  <!--<div class="container-fluid">
-				    <div class="row-fluid">
-				      <div class="span3">
-						  <%= render :partial => "shared/sidebar" %>
-				      </div>
-				      <div class="span9">-->
-				        <%= yield %>
-				      <!--</div>
-				    </div>
-				  </div>-->
+				  	<p>&nbsp;</p>
+					<%= yield %>
 				  <%- else %>
-				  <%= yield %>
+				  	<%= yield %>
 				  <%- end %>
 		        </div>
 		      </div><!--/row-->
