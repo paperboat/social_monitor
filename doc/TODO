@@ -1,5 +1,4 @@
 == open ==
-* center content-wrapper
 * explain the key metrics
 	- help page
 * facebook nach opdröselen
@@ -16,6 +15,7 @@
 * include display-name in slug
 * change "root URL" to URL
 * change "name" to "Display name"
+* center content-wrapper
 
 == In work ==
 
