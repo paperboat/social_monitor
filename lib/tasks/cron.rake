@@ -147,6 +147,13 @@ namespace :cron do
     end
     puts "Statistics update finished"
   end
+  
+  task :become_admin => :environment do
+    u = User.first
+    u.premium = true
+    u.valid_till = '2037-12-31'
+    u.save
+  end
 end
 
 private
