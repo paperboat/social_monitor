@@ -1,3 +1,4 @@
+== open ==
 * error message for password
 * change "root URL" to URL
 * change "name" to "Display name"
@@ -5,8 +6,14 @@
 * explain the key metrics
 * facebook nach opdröselen
 * graphs
+* crawler cut-off (needs testing)
+* include display-name in slug
+
+== finished ==
+./.
+
+
+== In work ==
 * public link fir unzeginn
 	- total
 	- graph
-
-* crawler cut-off (needs testing)
