@@ -9,7 +9,7 @@ namespace :cron do
     queries = Hash.new
     puts "Starting crawler"
     Website.all.each do |w|
-      if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1
+      if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1 || (w.pages.size < 20 && w.user.premium)
         
         puts "=Crawling #{w.name}"
         i = w.pages.size
