@@ -15,8 +15,8 @@ namespace :cron do
         i = w.pages.size
         if w.user.premium || i < 20
           Anemone.crawl(w.root_url) do |anemone|
+            if w.user.premium || i < 20
             anemone.on_every_page do |page|
-              if w.user.premium || i < 20
                 puts "==Looking at #{page.url}"
                 if url_acceptable(page.url.to_s, queries)
                   p = Page.find_by_sha(Digest::SHA1.hexdigest(page.body))
