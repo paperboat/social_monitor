@@ -7,14 +7,14 @@
 * facebook nach opdröselen
 * graphs
 * crawler cut-off (needs testing)
-* include display-name in slug
 * include graph in public link
 
 == finished ==
 * public link fir unzeginn
 * public link net invalideieren
 * include display name in title for public link
-
-== In work ==
 * include Icon for facebook
 * include desc for Facebook
+
+== In work ==
+* include display-name in slug

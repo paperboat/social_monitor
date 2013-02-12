@@ -22,4 +22,8 @@ class Website < ActiveRecord::Base
   def create_public_token
     self.public_token = SecureRandom.urlsafe_base64
   end
+  
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
