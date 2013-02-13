@@ -3,7 +3,8 @@
 	- help page
 * facebook nach opdröselen
 * graphs
-* crawler cut-off (needs testing)
+* crawler cut-off!!!
+* crawler dopplungen vermeiden (z.B. ?showComment=)
 * include graph in public link
 
 == finished ==
@@ -18,7 +19,7 @@
 * center content-wrapper
 
 == In work ==
-
+* add http:// to urls that are entered without
 
 == Deferred ==
 * error message for password (suboptimal brauch en expert)

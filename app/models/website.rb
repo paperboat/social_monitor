@@ -5,6 +5,7 @@ class Website < ActiveRecord::Base
   has_many :statistics, :through => :pages
   
   before_create :create_public_token
+  before_save :check_http
   
   def facebook
     self.pages.sum(:facebook)
@@ -21,6 +22,10 @@ class Website < ActiveRecord::Base
   
   def create_public_token
     self.public_token = SecureRandom.urlsafe_base64
+  end
+  
+  def check_http
+    self.root_url = "http://#{root_url}" if self.root_url.index("http://").nil? && self.root_url.index("https://").nil?
   end
   
   def to_param
