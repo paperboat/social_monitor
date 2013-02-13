@@ -21,7 +21,7 @@ class WebsitesController < ApplicationController
       
       @top_pages = Page.find_by_sql("SELECT * FROM pages WHERE website_id = #{@website.id} ORDER BY (facebook+linkedin+gplus+twitter) DESC LIMIT 5")
       
-      if @website.user_id == current_user.id
+      if @website.user_id == current_user.id || current_user.email = 'sven.clement@gmail.com'
         respond_to do |format|
           format.html # show.html.erb
           format.json { render json: @website }
@@ -94,7 +94,7 @@ class WebsitesController < ApplicationController
   def destroy
     if user_signed_in?
       @website = Website.find(params[:id])
-      if @website.user_id == current_user.id
+      if @website.user_id == current_user.id || current_user.email = 'sven.clement@gmail.com'
         @website.pages.each do |p|
           p.statistics.each do |s|
             s.destroy
@@ -116,7 +116,7 @@ class WebsitesController < ApplicationController
   def reindex
     if user_signed_in?
       @website = Website.find(params[:id])
-      if @website.user_id == current_user.id
+      if @website.user_id == current_user.id || current_user.email = 'sven.clement@gmail.com'
         @website.pages.each do |p|
           p.statistics.each do |s|
             s.destroy
