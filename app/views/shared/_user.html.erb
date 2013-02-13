@@ -14,11 +14,11 @@
 	<%= form_for("user", :url => user_session_path, :html => { :class => "navbar-form pull-right"}) do |f| %>
 		<div class="input-prepend">
 		  <span class="add-on"><span class="icon-user"></span></span>
-		  <%= f.text_field :email, :placeholder => "E-Mail", :class => "span2" %>
+		  <%= f.text_field :email, :placeholder => "E-Mail", :class => "input-medium" %>
 		</div>
 		<div class="input-prepend input-append">
 		  <span class="add-on"><span class="icon-key"></span></span>
-		  <%= f.password_field :password, :placeholder => "Password", :class => "span2" %>
+		  <%= f.password_field :password, :placeholder => "Password", :class => "input-small" %>
 		  <button type="submit" class="btn">Sign In</button>
 		</div>
 	<% end -%>
