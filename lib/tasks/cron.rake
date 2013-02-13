@@ -163,11 +163,12 @@ def url_acceptable(url, queries)
   url.index(/\.pdf$/).nil? &&
   url.index("%23").nil? &&
   # To handle problems with wordpress
-  url.index('replytocom').nil? &&
+  url.index('replytocom=').nil? &&
   url.index(/\?tag=/).nil? &&
   url.index(/\?cat=/).nil? &&
   url.index(/\?paged=/).nil? &&
   url.index(/\/\?$/).nil? &&
+  url.index('showComment=').nil? &&
   !queries.include?(get_query(url))
 end
 
