@@ -1,11 +1,10 @@
 == open ==
 * explain the key metrics
-	- help page
 * facebook nach opdröselen
 * crawler cut-off!!!
-* include graph in public link
 * remove link-tracking for password reset mails (maybe all devise mails)
 * limit graph display to a certain date range
+* cleaner method to show public url in show.html.erb
 
 == finished ==
 * public link fir unzeginn
@@ -21,6 +20,8 @@
 * fix login forms
 * crawler dopplungen vermeiden (z.B. ?showComment=)
 * graphs (basic)
+* include graph in public link
+* help page
 
 == In work ==
 

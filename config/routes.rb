@@ -15,6 +15,8 @@ SocialMonitor::Application.routes.draw do
   get 'upgrade' => 'static#upgrade'
   get 'confirm_upgrade' => 'static#confirm_upgrade'
   get 'p/:id' => 'static#public'
+  get 'help' => 'static#help'
+  get 'contact' => 'static#contact'
   
   root :to => 'static#index'
 end

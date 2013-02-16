@@ -42,9 +42,17 @@
 		            <span class="icon-bar"></span>
 		          </a>
 		          <a class="brand" href="/"><span class="icon-bar-chart"></span> SocialMonitor</a>
+				  <% if params[:controller] == 'static' && params[:action] == 'public' -%>
+				  <!-- nothing to show here -->
+				  <% else -%>
+				  <ul class="nav">
+					  <li><a href="/help">Help</a></li>
+					  <li><a href="/contact">Contact</a></li>
+				  </ul>
 		          <div class="container-fluid nav-collapse">
 					<%= render :partial => 'shared/user' -%>
 		          </div><!--/.nav-collapse -->
+				  <% end -%>
 		        </div>
 		      </div>
 		    </div>
