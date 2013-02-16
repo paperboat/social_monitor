@@ -25,4 +25,29 @@
 			<h3><%= @website.linkedin %></h3>
 		</div>
 	</div>
+	<% if @stats.size > 1 -%>
+	<div class="row-fluid">
+		    <script type="text/javascript">
+		      google.setOnLoadCallback(drawChart);
+		      function drawChart() {
+		        var data = google.visualization.arrayToDataTable([
+		          ['Date', 'Facebook', 'Twitter', 'Google+', 'LinkedIn'],
+				  <% @stats.each do |k,v| -%>
+				  ['<%= k %>', <%= v[:facebook] %>, <%= v[:twitter] %>, <%= v[:gplus] %>, <%= v[:linkedin] %>],
+				  <% end -%>
+		        ]);
+
+		        var options = {
+				  curveType: 'function',
+				  colors: ['#3b5998', '#9AE4E8', '#C63D2D', '#4875B4']
+		        };
+
+		        var chart = new google.visualization.LineChart(document.getElementById('websitesGraph'));
+		        chart.draw(data, options);
+		      }
+		    </script>
+		<div class="span12" id="websitesGraph" style="height: 250px;">
+		</div>
+	</div>
+	<% end -%>
 </div>

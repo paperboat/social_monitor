@@ -20,9 +20,9 @@
 * add http:// to urls that are entered without
 * fix login forms
 * crawler dopplungen vermeiden (z.B. ?showComment=)
+* graphs (basic)
 
 == In work ==
-* graphs
 
 == Deferred ==
 * error message for password (suboptimal brauch en expert)
