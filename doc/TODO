@@ -5,6 +5,7 @@
 * crawler cut-off!!!
 * include graph in public link
 * remove link-tracking for password reset mails (maybe all devise mails)
+* limit graph display to a certain date range
 
 == finished ==
 * public link fir unzeginn
