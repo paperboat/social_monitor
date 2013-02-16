@@ -19,6 +19,15 @@ class WebsitesController < ApplicationController
     if user_signed_in?
       @website = Website.find(params[:id])
       
+      @stats = Hash.new
+      @website.statistics.each do |s|
+        if @stats[s.fetch_date].nil? 
+          @stats[s.fetch_date] = {:facebook => s.facebook, :twitter => s.twitter, :gplus => s.gplus, :linkedin => s.linkedin}
+        else
+          @stats[s.fetch_date] = {:facebook => @stats[s.fetch_date][:facebook] + s.facebook, :twitter => @stats[s.fetch_date][:twitter] + s.twitter, :gplus => @stats[s.fetch_date][:gplus] + s.gplus, :linkedin => @stats[s.fetch_date][:linkedin] + s.linkedin}
+        end
+      end
+      
       @top_pages = Page.find_by_sql("SELECT * FROM pages WHERE website_id = #{@website.id} ORDER BY (facebook+linkedin+gplus+twitter) DESC LIMIT 5")
       
       if @website.user_id == current_user.id || current_user.email = 'sven.clement@gmail.com'

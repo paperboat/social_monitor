@@ -4,8 +4,8 @@
 * facebook nach opdröselen
 * graphs
 * crawler cut-off!!!
-* crawler dopplungen vermeiden (z.B. ?showComment=)
 * include graph in public link
+* remove link-tracking for password reset mails (maybe all devise mails)
 
 == finished ==
 * public link fir unzeginn
@@ -17,9 +17,12 @@
 * change "root URL" to URL
 * change "name" to "Display name"
 * center content-wrapper
+* add http:// to urls that are entered without
+* fix login forms
+* crawler dopplungen vermeiden (z.B. ?showComment=)
 
 == In work ==
-* add http:// to urls that are entered without
+
 
 == Deferred ==
 * error message for password (suboptimal brauch en expert)
