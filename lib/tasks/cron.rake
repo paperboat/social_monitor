@@ -110,7 +110,7 @@ namespace :cron do
   task :statistics => :environment do
     puts "Starting statistics update"
     Page.all.each do |p|
-      if p.statistics.size < 1 || p.statistics.last.fetch_date < Date.today - 1.day
+      if p.statistics.size < 1 || p.statistics.last.fetch_date <= Date.today - 1.day
         puts "=Updating #{p.url}"
         s = Statistic.new
         s.page_id = p.id
