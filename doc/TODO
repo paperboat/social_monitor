@@ -5,7 +5,6 @@
 
 * explain the key metrics
 * facebook nach opdröselen
-* crawler cut-off!!!
 * remove link-tracking for password reset mails (maybe all devise mails)
 * limit graph display to a certain date range
 * cleaner method to show public url in show.html.erb
@@ -26,6 +25,7 @@
 * graphs (basic)
 * include graph in public link
 * help page
+* crawler cut-off!!!
 
 == In work ==
 

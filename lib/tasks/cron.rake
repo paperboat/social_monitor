@@ -9,14 +9,18 @@ namespace :cron do
     queries = Hash.new
     puts "Starting crawler"
     Website.all.each do |w|
-      # Check whether we want to crawl a website anyway
       if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1
-        
+        # Init crawler
         puts "=Crawling #{w.name}"
         i = w.pages.size
+        # Crawl
+        # Check whether we need to look at the page
         if w.user.premium || i < 20
           Anemone.crawl(w.root_url) do |anemone|
+            # Check whether we need to look at the page
+            if w.user.premium || i < 20
               anemone.on_every_page do |page|
+                # Check whether we need to look at the page
                 if w.user.premium || i < 20
                   puts "==Looking at #{page.url}"
                   if url_acceptable(page.url.to_s, queries)
@@ -32,18 +36,16 @@ namespace :cron do
                   end
                 end
               end
-            else
-              break
             end
           end
         end
+      end
         
         w.last_crawl = Time.now
         w.page_cnt = w.pages.size
         w.save
-        puts "=Crawling ended with #{i} new discovered pages"
+        puts "=Crawling ended with #{i} discovered pages"
         
-      end
     end
     # Update Page counts
     puts "Updating cached page counts"
