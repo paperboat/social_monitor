@@ -9,24 +9,26 @@ namespace :cron do
     queries = Hash.new
     puts "Starting crawler"
     Website.all.each do |w|
-      if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1 || (w.pages.size < 20 && w.user.premium)
+      # Check whether we want to crawl a website anyway
+      if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1
         
         puts "=Crawling #{w.name}"
         i = w.pages.size
         if w.user.premium || i < 20
           Anemone.crawl(w.root_url) do |anemone|
-            if w.user.premium || i < 20
               anemone.on_every_page do |page|
-                puts "==Looking at #{page.url}"
-                if url_acceptable(page.url.to_s, queries)
-                  p = Page.find_by_sha(Digest::SHA1.hexdigest(page.body))
-                  if p.nil?
-                    Page.where(:website_id => w.id, :url => page.url.to_s).first_or_create(:sha => Digest::SHA1.hexdigest(page.body), :code => page.code, :depth => page.depth, :headers => page.headers, :redirect_to => page.redirect_to, :referer => page.referer, :response_time => page.response_time, :page_title => (page.doc.at('title').inner_html rescue nil))
-                    puts "===Page saved: #{page.url}"
-                    i+=1
-                    queries[get_query(page.url.to_s)] = 1 unless get_query(page.url.to_s).nil?
-                  else
-                    puts "===Page discarded"
+                if w.user.premium || i < 20
+                  puts "==Looking at #{page.url}"
+                  if url_acceptable(page.url.to_s, queries)
+                    p = Page.find_by_sha(Digest::SHA1.hexdigest(page.body))
+                    if p.nil?
+                      Page.where(:website_id => w.id, :url => page.url.to_s).first_or_create(:sha => Digest::SHA1.hexdigest(page.body), :code => page.code, :depth => page.depth, :headers => page.headers, :redirect_to => page.redirect_to, :referer => page.referer, :response_time => page.response_time, :page_title => (page.doc.at('title').inner_html rescue nil))
+                      puts "===Page saved: #{page.url}"
+                      i+=1
+                      queries[get_query(page.url.to_s)] = 1 unless get_query(page.url.to_s).nil?
+                    else
+                      puts "===Page discarded"
+                    end
                   end
                 end
               end
