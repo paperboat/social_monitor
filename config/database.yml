@@ -22,7 +22,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: social_monitor
+  database: monitor
   pool: 5
   username: deployer
   password: 'Pse6p,wvk5!RNLjo'
