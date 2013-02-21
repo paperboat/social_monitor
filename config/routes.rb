@@ -1,4 +1,9 @@
+require 'resque/server'
+
 SocialMonitor::Application.routes.draw do
+  
+  mount Resque::Server, :at => "/resque"
+  
   get "pay_pal/return"
 
   get "pay_pal/cancel"
