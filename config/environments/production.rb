@@ -79,9 +79,8 @@ SocialMonitor::Application.configure do
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
-    :user_name => ENV['MANDRILL_USERNAME'],
-    :password  => ENV['MANDRILL_APIKEY'],
-    :domain    => 'heroku.com',
+    :user_name => "info@paperboat.lu",
+    :password  => "nRZ4tg3ytG-pa1LVgwxbnQ",
     :authentication => :plain
   }
 end
