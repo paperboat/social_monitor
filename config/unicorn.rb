@@ -11,12 +11,12 @@ user "deployer", "www-data"
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-APP_PATH = "/var/www/blog/current"
+APP_PATH = "/var/www/social_monitor/current"
 working_directory APP_PATH
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/unicorn.blog.sock", :backlog => 64
+listen "/tmp/unicorn.social_monitor.sock", :backlog => 64
 listen 8080, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
@@ -28,8 +28,8 @@ pid APP_PATH + "/tmp/pids/unicorn.pid"
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path APP_PATH + "/log/unicorn.blog.stderr.log"
-stdout_path APP_PATH + "/log/unicorn.blog.stdout.log"
+stderr_path APP_PATH + "/log/unicorn.social_monitor.stderr.log"
+stdout_path APP_PATH + "/log/unicorn.social_monitor.stdout.log"
 
 before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
