@@ -26,5 +26,5 @@ production:
   pool: 5
   username: deployer
   password: 'Pse6p,wvk5!RNLjo'
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
