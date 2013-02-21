@@ -11,8 +11,7 @@ set :user, "deployer"
 set :deploy_to, "/var/www/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :workers, { "crawl" => 2 }
-set :workers, { "statistics" => 2 }
+set :workers, { "statistics" => 2, "crawl" => 2 }
 
 set :scm, "git"
 set :repository, "git@github.com:paperboat/#{application}.git"
