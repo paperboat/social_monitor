@@ -5,6 +5,7 @@ gem 'sqlite3'
 
 # RESQUE for BG-jobs
 gem 'resque'
+gem 'capistrano-resque'
 
 # Database
 group :development do
