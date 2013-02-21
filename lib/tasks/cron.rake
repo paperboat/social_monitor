@@ -5,6 +5,14 @@ require 'json'
 require 'digest/sha1'
 
 namespace :cron do
+  
+  task :daily => :environment do
+    # Adding all the websites to the crawler queue
+    Website.all.each do |w|
+      
+    end
+  end
+  
   task :crawl => :environment do
     queries = Hash.new
     puts "Starting crawler"
