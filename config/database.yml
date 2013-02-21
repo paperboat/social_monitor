@@ -20,6 +20,11 @@ test:
 
 production:
   adapter: mysql2
-  database: db/production.sqlite3
+  encoding: utf8
+  reconnect: false
+  database: social_monitor
   pool: 5
-  timeout: 5000
+  username: deployer
+  password: 'Pse6p,wvk5!RNLjo'
+  socket: /tmp/mysql.sock
+

@@ -5,9 +5,15 @@ gem 'rails', '3.2.11'
 # Database
 group :development do
   gem 'sqlite3'
+  # The thin webserver
+  gem 'thin'
+  # Use Capistrano for the deployment
+    gem 'capistrano'
+    gem 'rvm-capistrano'
 end
 group :production do
   gem 'mysql2'
+  gem 'unicorn'
 end
 
 # Automatic PayPal
@@ -26,9 +32,6 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-# The thin webserver
-gem 'thin'
 
 # devise for authentication
 gem 'devise'
