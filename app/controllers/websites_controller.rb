@@ -67,6 +67,7 @@ class WebsitesController < ApplicationController
 
       respond_to do |format|
         if @website.save
+          Resque.enqueue(Crawler, @website.id)
           format.html { redirect_to "/", notice: 'Website was successfully created.' }
           format.json { render json: @website, status: :created, location: @website }
         else

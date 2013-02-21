@@ -8,6 +8,7 @@
 * remove link-tracking for password reset mails (maybe all devise mails)
 * limit graph display to a certain date range
 * cleaner method to show public url in show.html.erb
+* DETECT CALENDARS!
 
 == finished ==
 * public link fir unzeginn
