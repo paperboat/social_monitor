@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
+  gem 'sqlite3'
+
 # Database
 group :development do
-  gem 'sqlite3'
   # The thin webserver
   gem 'thin'
   # Use Capistrano for the deployment
