@@ -26,6 +26,11 @@ class Crawler
                     queries[get_query(page.url.to_s)] = 1 unless get_query(page.url.to_s).nil?
                   end
                 end
+              else
+                w.last_crawl = Time.now
+                w.page_cnt = w.pages.size
+                w.save
+                Resque.enqueue(Statistician, w.id)
               end
             end
           end
