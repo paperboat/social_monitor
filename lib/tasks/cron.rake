@@ -9,7 +9,7 @@ namespace :cron do
   task :daily => :environment do
     # Adding all the websites to the crawler queue
     Website.all.each do |w|
-      
+      Resque.enqueue(Crawler, w.id)
     end
   end
   
