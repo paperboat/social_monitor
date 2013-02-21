@@ -11,13 +11,13 @@ class Crawler
       i = w.pages.size
       # Crawl
       # Check whether we need to look at the page
-      if w.user.premium || i < 20
+      if w.user.premium || i < 21
         Anemone.crawl(w.root_url) do |anemone|
           # Check whether we need to look at the page
-          if w.user.premium || i < 20
+          if w.user.premium || i < 21
             anemone.on_every_page do |page|
               # Check whether we need to look at the page
-              if w.user.premium || i < 20
+              if w.user.premium || i < 21
                 if url_acceptable(page.url.to_s, queries)
                   p = Page.find_by_sha(Digest::SHA1.hexdigest(page.body))
                   if p.nil?
