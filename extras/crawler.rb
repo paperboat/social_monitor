@@ -9,7 +9,7 @@ class Crawler
     # check whether we really need to crawl
     if w.last_crawl.nil? || w.last_crawl + 3600.seconds < Time.now || w.pages.size < 1
       # Init crawler
-      i = w.pages.size
+      i = w.pages.size || 0
       # Crawl
       # Check whether we need to look at the page
       if w.user.premium || i < 21
@@ -40,7 +40,7 @@ class Crawler
       end
       
       w.last_crawl = Time.now
-      w.page_cnt = w.pages.size
+      w.page_cnt = w.pages.size || 0
       w.save
       
       # Update the user page count
