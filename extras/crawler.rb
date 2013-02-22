@@ -3,10 +3,11 @@ class Crawler
 
   def self.perform(website_id)
     w = Website.find(website_id)
+    queued = false
     
     queries = Hash.new
     # check whether we really need to crawl
-    if w.last_crawl.nil? || w.last_crawl + w.frequency.seconds < Time.now || w.pages.size < 1
+    if w.last_crawl.nil? || w.last_crawl + 3600.seconds < Time.now || w.pages.size < 1
       # Init crawler
       i = w.pages.size
       # Crawl
@@ -30,7 +31,8 @@ class Crawler
                 w.last_crawl = Time.now
                 w.page_cnt = w.pages.size
                 w.save
-                Resque.enqueue(Statistician, w.id)
+                Resque.enqueue(Statistician, w.id) if !queued && i > 10
+                queued = true if i > 10
               end
             end
           end
